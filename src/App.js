@@ -10,96 +10,156 @@ import emailButton from './images/contact/email.png';
 import linkedinButton from './images/contact/linkedin.png';
 import instagramButton from './images/contact/instagram.png';
 import twitterButton from './images/contact/twitter.png';
+import introMP4 from './images/intro.mp4';
+import introWEBM from './images/intro.webm';
 import './styles/App.css';
 
 class App extends Component {
-    render() {
-        return (
-            <div className="container">
-                <header className="intro">
-                    <img src={logo} />
-                    <h1>Hey, I'm Sang.</h1>
-                    <h2>Graphic Designer</h2>
-                    <nav>
-                        <ul>
-                            <li>About</li>
-                            <li>Projects</li>
-                            <li>Contact</li>
-                        </ul>
-                    </nav>
-                </header>
-                <div className="side-nav">
-                    <ul>
-                        <li>About</li>
-                        <li>Projects</li>
-                        <li>Contact</li>
-                    </ul>
-                </div>
-                <div className="about">
-                    <div className="about-pictures">
-                        <div>
-                            <img src={panel1} />
-                            <h2>How I got here.</h2>
-                        </div>
-                        <div>
-                            <img src={panel2} />
-                            <h2>What I Want to See.</h2>
-                        </div>
-                        <div>
-                            <img src={panel3} />
-                            <h2>My Passions.</h2>
-                        </div>
-                    </div>
-                    <div className="about-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec felis eget urna fringilla rutrum eu sit amet dolor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In sit amet sapien fringilla, vulputate quam fermentum, tempus lectus. Maecenas vitae mollis elit. Praesent at nisl condimentum, maximus magna quis, vestibulum neque. Fusce eu bibendum enim. Pellentesque a tortor feugiat, convallis sem quis, sagittis nisl.</p>
-                        <p>Nam vitae feugiat felis, eget aliquet lectus. Curabitur consequat sagittis neque eu imperdiet. Suspendisse ultrices sapien eget rhoncus volutpat. Morbi gravida quis eros eget volutpat. Aliquam non felis facilisis, porttitor tellus vitae, euismod erat. Donec fermentum venenatis ultricies. Mauris eget libero augue. Nunc id felis at leo laoreet volutpat. Fusce nunc erat, aliquam vel nunc vitae, eleifend fringilla dui.</p>
-                        <p>Ut dapibus, arcu in molestie cursus, nisi augue tristique ante, quis mollis libero orci a dui. Phasellus hendrerit metus ut tortor pretium viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed vel pharetra arcu, eu lacinia magna. In hac habitasse platea dictumst. Donec elit elit, accumsan eu malesuada in, tristique vel dolor. Curabitur finibus neque id lectus ullamcorper finibus. Pellentesque eu justo lectus. Vestibulum fermentum feugiat lacus, in condimentum eros tincidunt non. Phasellus eu eros elit. In eleifend cursus mauris, non luctus enim iaculis quis. Nullam volutpat at quam sit amet cursus. Sed vitae ornare est. Nulla sed tortor in velit iaculis venenatis.</p>
-                        <div className="resume">
-                            <button className="resume-button"><img src={resumeButton} /></button>
-                            <span>Resume</span>
-                        </div>
-                    </div>
-                </div>
-                <div className="projects">
-                    <div className="carousel-select">
-                        <ul>
-                            <li><img src={carouselButton} /></li>
-                            <li><img src={carouselButton} /></li>
-                            <li><img src={carouselButton} /></li>
-                            <li><img src={carouselButton} /></li>
-                        </ul>
-                    </div>
-                    <button className="more"><img src={moreButton} /></button>
-                    <div className="project">
-                        <h2>American Friends of Jamaica</h2>
-                        <h3>Nonprofit Organization</h3>
-                    </div>
-                    <div className="project">
-                        <h2>American Friends of Jamaica</h2>
-                        <h3>Nonprofit Organization</h3>
-                    </div>
-                    <div className="project">
-                        <h2>American Friends of Jamaica</h2>
-                        <h3>Nonprofit Organization</h3>
-                    </div>
-                    <div className="project">
-                        <h2>American Friends of Jamaica</h2>
-                        <h3>Nonprofit Organization</h3>
-                    </div>
-                </div>
-                <div className="contact">
-                    <h1>Want something designed?</h1>
-                    <h2>I am available for freelance projects now, and full-time employment starting June 2021.</h2>
-                    <div className="contact-buttons">
-                        <button className="contact-email"><img src={emailButton} /></button>
-                        <button className="contact-linkedin"><img src={linkedinButton} /></button>
-                        <button className="contact-instagram"><img src={instagramButton} /></button>
-                        <button className="contact-twitter"><img src={twitterButton} /></button>
-                    </div>
-                </div>
-            </div>
-        );
+  constructor(props) {
+    super(props);
+    this.state = {
+      aboutPanel: "howigothere",
+    };
+  }
+
+  activateNavButton(scrollPos) {
+    let aboutRect = document.getElementById("about").getBoundingClientRect();
+    let projectsRect = document.getElementById("projects").getBoundingClientRect();
+    let contactRect = document.getElementById("contact").getBoundingClientRect();
+
+    // user on about section
+    if (scrollPos >= (aboutRect.top + scrollPos) && scrollPos <= (aboutRect.bottom + scrollPos)) {
+      document.getElementById("nav-about").classList.add("active-nav");
+    } else {
+      document.getElementById("nav-about").classList.remove("active-nav");
     }
+    // user on projects section
+    if (scrollPos >= (projectsRect.top + scrollPos) && scrollPos <= (projectsRect.bottom + scrollPos)) {
+      document.getElementById("nav-projects").classList.add("active-nav");
+    } else {
+      document.getElementById("nav-projects").classList.remove("active-nav");
+    }
+    // user on contact section
+    if (scrollPos + 1 >= (contactRect.top + scrollPos) && scrollPos + 1<= (contactRect.bottom + scrollPos)) {
+      document.getElementById("nav-contact").classList.add("active-nav");
+    } else {
+      document.getElementById("nav-contact").classList.remove("active-nav");
+    }
+  }
+
+  componentDidMount() {
+    let scrollPos = window.scrollY;
+
+    this.activateNavButton(scrollPos);
+
+    document.addEventListener('scroll', () => {
+      scrollPos = window.scrollY;
+      this.activateNavButton(scrollPos);
+    });
+  }
+
+  render() {
+    return (
+      <div className="container">
+        <header id="intro">
+          <video playsInline autoPlay muted loop>
+            <source src={introWEBM} type="video/webm" />
+            <source src={introMP4} type="video/mp4" />
+          </video>
+          <div className="logo-container">
+            <img src={logo} />
+          </div>
+          <div className="intro-content">
+            <h1>Hey, I'm Sang.</h1>
+            <h2>Graphic Designer</h2>
+            <nav>
+              <ul>
+                <li onClick={() => document.getElementById("about").scrollIntoView({behavior: 'smooth'})}>About</li>
+                <li onClick={() => document.getElementById("projects").scrollIntoView({behavior: 'smooth'})}>Projects</li>
+                <li onClick={() => document.getElementById("contact").scrollIntoView({behavior: 'smooth'})}>Contact</li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        <div className="side-nav">
+          <div id="nav-about" onClick={() => document.getElementById("about").scrollIntoView({behavior: 'smooth'})}><span>About</span></div>
+          <div id="nav-projects" onClick={() => document.getElementById("projects").scrollIntoView({behavior: 'smooth'})}><span>Projects</span></div>
+          <div id="nav-contact" onClick={() => document.getElementById("contact").scrollIntoView({behavior: 'smooth'})}><span>Contact</span></div>
+        </div>
+        <div id="about" className="content">
+          <div className="about-pictures">
+            <div className={this.state.aboutPanel === "howigothere" && "active-about-panel"} onClick={() => this.setState({ aboutPanel: "howigothere" })}>
+              <img src={panel1} />
+              <h2>How I got here.</h2>
+            </div>
+            <div className={this.state.aboutPanel === "whatiwanttosee" && "active-about-panel"} onClick={() => this.setState({ aboutPanel: "whatiwanttosee" })}>
+              <img src={panel2} />
+              <h2>What I Want to See.</h2>
+            </div>
+            <div className={this.state.aboutPanel === "mypassions" && "active-about-panel"} onClick={() => this.setState({ aboutPanel: "mypassions" })}>
+              <img src={panel3} />
+              <h2>My Passions.</h2>
+            </div>
+          </div>
+          <div className="about-content">
+            {
+              this.state.aboutPanel === "howigothere" &&
+              <p>how i got here</p>
+            }
+            {
+              this.state.aboutPanel === "whatiwanttosee" &&
+              <p>what i want to see</p>
+            }
+            {
+              this.state.aboutPanel === "mypassions" &&
+              <p>my passions</p>
+            }
+            <div className="resume">
+              <img src={resumeButton} />
+              <span>Resume</span>
+            </div>
+          </div>
+        </div>
+        <div id="projects" className="content">
+          <div className="carousel-select">
+            <ul>
+              <li><img src={carouselButton} /></li>
+              <li><img src={carouselButton} /></li>
+              <li><img src={carouselButton} /></li>
+              <li><img src={carouselButton} /></li>
+            </ul>
+          </div>
+          <button className="more"><img src={moreButton} /></button>
+          <div className="project">
+            <h2>American Friends of Jamaica</h2>
+            <h3>Nonprofit Organization</h3>
+          </div>
+          <div className="project">
+            <h2>American Friends of Jamaica</h2>
+            <h3>Nonprofit Organization</h3>
+          </div>
+          <div className="project">
+            <h2>American Friends of Jamaica</h2>
+            <h3>Nonprofit Organization</h3>
+          </div>
+          <div className="project">
+            <h2>American Friends of Jamaica</h2>
+            <h3>Nonprofit Organization</h3>
+          </div>
+        </div>
+        <div id="contact" className="content">
+          <h1>Want something designed?</h1>
+          <h2>I am available for freelance projects now, and full-time employment starting June 2021.</h2>
+          <div className="contact-buttons">
+            <button className="contact-email"><img src={emailButton} /></button>
+            <button className="contact-linkedin"><img src={linkedinButton} /></button>
+            <button className="contact-instagram"><img src={instagramButton} /></button>
+            <button className="contact-twitter"><img src={twitterButton} /></button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
