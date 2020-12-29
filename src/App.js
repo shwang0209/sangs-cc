@@ -4,6 +4,9 @@ import panel1 from './images/about/about_panel1.png';
 import panel2 from './images/about/about_panel2.png';
 import panel3 from './images/about/about_panel3.png';
 import resumeButton from './images/about/resume_button.png';
+import resumeBackButton from './images/about/resume_back.png';
+import resumeDownloadButton from './images/about/resume_download.png';
+import resume from './images/about/Resume_Sep2020.pdf';
 import carouselButton from './images/projects/carousel_button.png';
 import moreButton from './images/projects/more_button.png';
 import emailButton from './images/contact/email.png';
@@ -19,6 +22,7 @@ class App extends Component {
     super(props);
     this.state = {
       aboutPanel: "howigothere",
+      showResume: false,
     };
   }
 
@@ -114,9 +118,34 @@ class App extends Component {
               this.state.aboutPanel === "mypassions" &&
               <p>my passions</p>
             }
-            <div className="resume">
-              <img src={resumeButton} />
-              <span>Resume</span>
+
+            {
+              this.state.showResume &&
+              <a href={resume} download="resume.pdf" target="_blank" className="download-resume">
+                <img src={resumeDownloadButton} />
+                <span>Download</span>
+              </a>
+            }
+            {
+              this.state.showResume &&
+              <div class="resume-modal">
+                <div class="resume-modal-content">
+                  <embed id="resume-preview" src={resume} height="100%" width="100%"/>
+                </div>
+              </div>
+            }
+            <div className="resume" onClick={() => this.setState(prevState => ({showResume: !prevState.showResume}))}>
+              { this.state.showResume ?
+                <div style={{position: "fixed"}}>
+                  <img src={resumeBackButton} />
+                  <span>Back</span>
+                </div>
+                :
+                <div>
+                  <img src={resumeButton} />
+                  <span>Resume</span>
+                </div>
+              }
             </div>
           </div>
         </div>

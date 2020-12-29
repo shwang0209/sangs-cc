@@ -200,7 +200,7 @@ body {
   font-size: 14pt;
 }
 
-#about .about-content .resume {
+#about .about-content .resume div, #about .about-content .download-resume {
   position: absolute;
   bottom: 50px;
   right: 50px;
@@ -211,13 +211,41 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 
-#about .about-content .resume img {
+#about .about-content .download-resume {
+  bottom: 300px;
+  right: 50px;
+  color: white;
+  position: fixed;
+  text-decoration: none;
+}
+
+#about .about-content .resume div img, #about .about-content .download-resume img {
   width: 150px;
   height: 150px;
 }
 
-#about .about-content .resume span {
+#about .about-content .resume div span, #about .about-content .download-resume span {
   margin-top: 20px;
+}
+
+.resume-modal {
+  position: fixed;
+  z-index: 1;
+  left: 20%;
+  top: 0;
+  width: 80%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resume-modal-content {
+  width: 800px;
+  height: 70%;
 }
