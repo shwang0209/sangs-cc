@@ -4,10 +4,10 @@ import panel1 from './images/about/about_panel1.png';
 import panel2 from './images/about/about_panel2.png';
 import panel3 from './images/about/about_panel3.png';
 import resumeButton from './images/about/resume_button.png';
-import resumeBackButton from './images/about/resume_back.png';
+import backButton from './images/back_button.png';
+import backButtonHover from './images/back_button_hover.png';
 import resumeDownloadButton from './images/about/resume_download.png';
 import resume from './images/about/Resume_Sep2020.pdf';
-import carouselButton from './images/projects/carousel_button.png';
 import moreButton from './images/projects/more_button.png';
 import emailButton from './images/contact/email.png';
 import linkedinButton from './images/contact/linkedin.png';
@@ -15,6 +15,10 @@ import instagramButton from './images/contact/instagram.png';
 import twitterButton from './images/contact/twitter.png';
 import introMP4 from './images/intro.mp4';
 import introWEBM from './images/intro.webm';
+import afj from './images/projects/afj.png';
+import chelsea from './images/projects/chelsea.png';
+import ecst from './images/projects/ecst.png';
+import logoProject from './images/projects/logo_project.png';
 import './styles/App.css';
 
 class App extends Component {
@@ -23,6 +27,9 @@ class App extends Component {
     this.state = {
       aboutPanel: "howigothere",
       showResume: false,
+      projectDisplayFormat: "carousel",
+      displayedProject: "afj",
+      displayProjectInfo: false,
     };
   }
 
@@ -32,19 +39,21 @@ class App extends Component {
     let contactRect = document.getElementById("contact").getBoundingClientRect();
 
     // user on about section
-    if (scrollPos >= (aboutRect.top + scrollPos) && scrollPos <= (aboutRect.bottom + scrollPos)) {
+    if (scrollPos >= (aboutRect.top + scrollPos) && scrollPos < (aboutRect.bottom + scrollPos)) {
       document.getElementById("nav-about").classList.add("active-nav");
     } else {
       document.getElementById("nav-about").classList.remove("active-nav");
     }
     // user on projects section
-    if (scrollPos >= (projectsRect.top + scrollPos) && scrollPos <= (projectsRect.bottom + scrollPos)) {
+    if (scrollPos >= (projectsRect.top + scrollPos) && scrollPos < (projectsRect.bottom + scrollPos)) {
       document.getElementById("nav-projects").classList.add("active-nav");
+      document.getElementById("projects-view").style.display = "block";
     } else {
       document.getElementById("nav-projects").classList.remove("active-nav");
+      document.getElementById("projects-view").style.display = "none";
     }
     // user on contact section
-    if (scrollPos + 1 >= (contactRect.top + scrollPos) && scrollPos + 1<= (contactRect.bottom + scrollPos)) {
+    if (scrollPos + 1 >= (contactRect.top + scrollPos) && scrollPos + 1 < (contactRect.bottom + scrollPos)) {
       document.getElementById("nav-contact").classList.add("active-nav");
     } else {
       document.getElementById("nav-contact").classList.remove("active-nav");
@@ -89,6 +98,12 @@ class App extends Component {
           <div id="nav-about" onClick={() => document.getElementById("about").scrollIntoView({behavior: 'smooth'})}><span>About</span></div>
           <div id="nav-projects" onClick={() => document.getElementById("projects").scrollIntoView({behavior: 'smooth'})}><span>Projects</span></div>
           <div id="nav-contact" onClick={() => document.getElementById("contact").scrollIntoView({behavior: 'smooth'})}><span>Contact</span></div>
+          {
+            this.state.displayProjectInfo ?
+            <div id="projects-back" onClick={() => this.setState({displayProjectInfo: false})}><span>Back</span></div>
+            :
+            <div id="projects-view" onClick={() => this.setState({projectDisplayFormat: "grid"})}><span>Change to Grid</span></div>
+          }
         </div>
         <div id="about" className="content">
           <div className="about-pictures">
@@ -137,7 +152,7 @@ class App extends Component {
             <div className="resume" onClick={() => this.setState(prevState => ({showResume: !prevState.showResume}))}>
               { this.state.showResume ?
                 <div style={{position: "fixed"}}>
-                  <img src={resumeBackButton} />
+                  <img src={backButtonHover} />
                   <span>Back</span>
                 </div>
                 :
@@ -150,41 +165,86 @@ class App extends Component {
           </div>
         </div>
         <div id="projects" className="content">
-          <div className="carousel-select">
-            <ul>
-              <li><img src={carouselButton} /></li>
-              <li><img src={carouselButton} /></li>
-              <li><img src={carouselButton} /></li>
-              <li><img src={carouselButton} /></li>
-            </ul>
+          <div className={"carousel-select" + (this.state.displayProjectInfo ? " hidden" : "")}>
+            <div
+              className={"carousel-button" + (this.state.displayedProject === "afj" ? " active-project" : "")}
+              onClick={() => this.setState({displayedProject: "afj"})}
+            />
+            <div
+              className={"carousel-button" + (this.state.displayedProject === "ecst" ? " active-project" : "")}
+              onClick={() => this.setState({displayedProject: "ecst"})}
+            />
+            <div
+              className={"carousel-button" + (this.state.displayedProject === "chelsea" ? " active-project" : "")}
+              onClick={() => this.setState({displayedProject: "chelsea"})}
+            />
+            <div
+              className={"carousel-button" + (this.state.displayedProject === "logo" ? " active-project" : "")}
+              onClick={() => this.setState({displayedProject: "logo"})}
+            />
           </div>
-          <button className="more"><img src={moreButton} /></button>
-          <div className="project">
-            <h2>American Friends of Jamaica</h2>
-            <h3>Nonprofit Organization</h3>
+          <div className={"more" + (this.state.displayProjectInfo ? " hidden" : "")} onClick={() => this.setState(prevState => ({displayProjectInfo: true}))}><img src={moreButton} /></div>
+          {
+            this.state.displayedProject === "afj" &&
+            <div className="project">
+              <img className={this.state.displayProjectInfo && "more-info"}src={afj} />
+              <h2 className={this.state.displayProjectInfo && "more-info"}>American Friends of Jamaica</h2>
+              <h3 className={this.state.displayProjectInfo && "more-info"}>Nonprofit Organization</h3>
+              {
+                this.state.displayProjectInfo &&
+                <p>afj</p>
+              }
+            </div>
+          }
+          {
+            this.state.displayedProject === "ecst" &&
+            <div className="project">
+              <img className={this.state.displayProjectInfo && "more-info"} src={ecst} />
+              <h2 className={this.state.displayProjectInfo && "more-info"}>East Coast Surf Tribe</h2>
+              <h3 className={this.state.displayProjectInfo && "more-info"}>Nonprofit Organization</h3>
+              {
+                this.state.displayProjectInfo &&
+                <p>ecst</p>
+              }
+            </div>
+          }
+          {
+            this.state.displayedProject === "chelsea" &&
+            <div className="project">
+            <img className={this.state.displayProjectInfo && "more-info"} src={chelsea} />
+            <h2 className={this.state.displayProjectInfo && "more-info"}>Infographics</h2>
+            <h3 className={this.state.displayProjectInfo && "more-info"}>Nonprofit Organization</h3>
+            {
+                this.state.displayProjectInfo &&
+                <p>chels</p>
+              }
           </div>
-          <div className="project">
-            <h2>American Friends of Jamaica</h2>
-            <h3>Nonprofit Organization</h3>
-          </div>
-          <div className="project">
-            <h2>American Friends of Jamaica</h2>
-            <h3>Nonprofit Organization</h3>
-          </div>
-          <div className="project">
-            <h2>American Friends of Jamaica</h2>
-            <h3>Nonprofit Organization</h3>
-          </div>
+          }
+          {
+            this.state.displayedProject === "logo" &&
+            <div className="project">
+              <img className={this.state.displayProjectInfo && "more-info"} src={logoProject} />
+              <h2 className={this.state.displayProjectInfo && "more-info"}>Logo Designs</h2>
+              <h3 className={this.state.displayProjectInfo && "more-info"}>Nonprofit Organization</h3>
+              {
+                this.state.displayProjectInfo &&
+                <p>logo</p>
+              }
+            </div>
+          }
         </div>
         <div id="contact" className="content">
           <h1>Want something designed?</h1>
           <h2>I am available for freelance projects now, and full-time employment starting June 2021.</h2>
+          <h3>The best place to contact me is at my email!</h3>
           <div className="contact-buttons">
-            <button className="contact-email"><img src={emailButton} /></button>
-            <button className="contact-linkedin"><img src={linkedinButton} /></button>
-            <button className="contact-instagram"><img src={instagramButton} /></button>
-            <button className="contact-twitter"><img src={twitterButton} /></button>
+            <div className="contact-email"><a href="mailto:test@gmail.com"><img src={emailButton} /></a></div>
+            <div className="contact-linkedin"><a href="" target="_blank"><img src={linkedinButton} /></a></div>
+            <div className="contact-instagram"><a href="" target="_blank"><img src={instagramButton} /></a></div>
+            <div className="contact-twitter"><a href="" target="_blank"><img src={twitterButton} /></a></div>
           </div>
+          <h3 className="purple">... but let's connect on other platforms as well!</h3>
+          <span class="imprint">IMPRINT</span>
         </div>
       </div>
     );
