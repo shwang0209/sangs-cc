@@ -204,56 +204,62 @@ class App extends Component {
             this.state.displayedProject === "motion" &&
             <div className="project">
               <img className={this.state.displayProjectInfo && "more-info"} src={motionGraphics} alt="Motion Graphics 3D Animation"/>
-              <h2 className={this.state.displayProjectInfo && "more-info"}>Motion Graphics/3D Animation</h2>
-              {
-                this.state.displayProjectInfo &&
-                <div className="project-description">
-                  <h3>Stamford Bridge Video</h3>
-                  <p>This video is my first venture into Cinema4D and the world of 3D in general. The video tells a story from Timo Werner’s perspective, a newly recruited soccer player from Germany. The camera alternates between POV shots and Television views, showing the game in which Timo Werner scored his first goal for his new team, Chelsea FC. The decision to leave most of the area largely untextured was a conscious choice to highlight the mental focus of the player.</p>
-                  <p>This project initially started in AfterEffects, but ultimately the decision to use 3D objects led to the shift to Cinema 4D. This project was largely a learning experience as I got used to the program but I was still able to create something rather elaborate, especially with the post-compositing in AfterEffects. Most of the textures used in Cinema 4D, as well as the motion graphics present, were initially created using Adobe Illustrator.</p>
-                  <h3>Logo Motion Video</h3>
-                  <p>This brand’s logo is a semi-symmetric, geometric “S” shape encased in a border sharing the same gradient fill. This logo was designed to be able to elegantly spin as a 3D object, all while cleanly presenting itself in 2D. This logo also works in two-tone settings, which is vital for many situations in digital interfaces.</p>
-                  <p>My first venture into AfterEffects served as an advertisement of sorts for this branding. The two main themes of this video was the use of lens flares and the use of diamond-shaped panels resembling the border of the logo.</p>
-                  <p>A concept storyboard was also created for an alternative animation. In this concept, the logo would fold itself like an origami. This origami is actually foldable in real life using the steps listed above.</p>
-                </div>
-              }
+              <div className="project-info">
+                <h2 className={this.state.displayProjectInfo && "more-info"}>Motion Graphics/3D Animation</h2>
+                {
+                  this.state.displayProjectInfo &&
+                  <div className="project-description">
+                    <h3>Stamford Bridge Video</h3>
+                    <p>This video is my first venture into Cinema4D and the world of 3D in general. The video tells a story from Timo Werner’s perspective, a newly recruited soccer player from Germany. The camera alternates between POV shots and Television views, showing the game in which Timo Werner scored his first goal for his new team, Chelsea FC. The decision to leave most of the area largely untextured was a conscious choice to highlight the mental focus of the player.</p>
+                    <p>This project initially started in AfterEffects, but ultimately the decision to use 3D objects led to the shift to Cinema 4D. This project was largely a learning experience as I got used to the program but I was still able to create something rather elaborate, especially with the post-compositing in AfterEffects. Most of the textures used in Cinema 4D, as well as the motion graphics present, were initially created using Adobe Illustrator.</p>
+                    <h3>Logo Motion Video</h3>
+                    <p>This brand’s logo is a semi-symmetric, geometric “S” shape encased in a border sharing the same gradient fill. This logo was designed to be able to elegantly spin as a 3D object, all while cleanly presenting itself in 2D. This logo also works in two-tone settings, which is vital for many situations in digital interfaces.</p>
+                    <p>My first venture into AfterEffects served as an advertisement of sorts for this branding. The two main themes of this video was the use of lens flares and the use of diamond-shaped panels resembling the border of the logo.</p>
+                    <p>A concept storyboard was also created for an alternative animation. In this concept, the logo would fold itself like an origami. This origami is actually foldable in real life using the steps listed above.</p>
+                  </div>
+                }
+              </div>
             </div>
           }
           {
             this.state.displayedProject === "logo" &&
             <div className="project">
               <img className={this.state.displayProjectInfo && "more-info"} src={ecst} alt="East Coast Surf Tribe Logo"/>
-              <h2 className={this.state.displayProjectInfo && "more-info"}>Logo Designs</h2>
-              {
-                this.state.displayProjectInfo &&
-                <div className="project-description">
-                  <p>The logo of East Coast Surf Tribe invokes what it strives to invoke in its practices. Free-flowing, clean waves by the coast. The negative space found within the letters of “ECST” is reminiscent of designs found in surf culture, adding a layer of depth to the logo.</p>
-                  <p>Some variants of the main logo, keeping the same visual element.</p>
-                  <p>This packaging design was used for ECST merchandise such as shirts and stickers. It incorporates the blue color scheme reminiscent of the logo, present in the center of the package design. At the bottom of the design, ECST’s slogan, “Souls to Seas,” is written in a script font that resonates with the waves of the ocean.</p>
-                  <p>These two logos were created for personal use. They were based on two numbers that are deemed “lucky” in many cultures, especially those of the Eastern countries.</p>
-                  <p>For instance, this geometric logo is created by combining elements of the numbers 2 and 9, and how they can be combined to create the number 7.</p>
-                  <p>This logo’s motif is based on two things: a mobius strip and a whip. Using the fluid shape of the number 8 and its unending nature of it, this logo breaks away from the emerging trend of geometric logos, while being able to be used in a two-tone color scheme.</p>
-                  <p>This is a conceptual redesign of the cosmetic brand Lush’s logo. Currently, Lush is known for their stark black and white identity, which contrasts with their extremely colorful products. The most appealing part of their branding to me is this contrast, which I wanted to incorporate into the logo itself. Taking into account their belief for environmentally friendly products, I incorporated a set of leaves that contrast with the main part of the logo.</p>
-                  <p>Here are some variants that can potentially be used. For example, the storefront can have LED signages that change the color of the leaves as needed. Perhaps, the colors can represent the season or the new products they are promoting at the time.</p>
-                </div>
-              }
+              <div className="project-info">
+                <h2 className={this.state.displayProjectInfo && "more-info"}>Logo Designs</h2>
+                {
+                  this.state.displayProjectInfo &&
+                  <div className="project-description">
+                    <p>The logo of East Coast Surf Tribe invokes what it strives to invoke in its practices. Free-flowing, clean waves by the coast. The negative space found within the letters of “ECST” is reminiscent of designs found in surf culture, adding a layer of depth to the logo.</p>
+                    <p>Some variants of the main logo, keeping the same visual element.</p>
+                    <p>This packaging design was used for ECST merchandise such as shirts and stickers. It incorporates the blue color scheme reminiscent of the logo, present in the center of the package design. At the bottom of the design, ECST’s slogan, “Souls to Seas,” is written in a script font that resonates with the waves of the ocean.</p>
+                    <p>These two logos were created for personal use. They were based on two numbers that are deemed “lucky” in many cultures, especially those of the Eastern countries.</p>
+                    <p>For instance, this geometric logo is created by combining elements of the numbers 2 and 9, and how they can be combined to create the number 7.</p>
+                    <p>This logo’s motif is based on two things: a mobius strip and a whip. Using the fluid shape of the number 8 and its unending nature of it, this logo breaks away from the emerging trend of geometric logos, while being able to be used in a two-tone color scheme.</p>
+                    <p>This is a conceptual redesign of the cosmetic brand Lush’s logo. Currently, Lush is known for their stark black and white identity, which contrasts with their extremely colorful products. The most appealing part of their branding to me is this contrast, which I wanted to incorporate into the logo itself. Taking into account their belief for environmentally friendly products, I incorporated a set of leaves that contrast with the main part of the logo.</p>
+                    <p>Here are some variants that can potentially be used. For example, the storefront can have LED signages that change the color of the leaves as needed. Perhaps, the colors can represent the season or the new products they are promoting at the time.</p>
+                  </div>
+                }
+              </div>
             </div>
           }
           {
             this.state.displayedProject === "soccer" &&
             <div className="project">
             <img className={this.state.displayProjectInfo && "more-info"} src={soccer} alt="Chelsea Infographic" />
-            <h2 className={this.state.displayProjectInfo && "more-info"}>Soccer Posters</h2>
-            {
-                this.state.displayProjectInfo &&
-                <div className="project-description">
-                  <p>If there was a series of projects to look back upon to see the development of my graphic design skills, it would be this one. Ever since my first interactions with digital creation tools, I made a tradition of making annual roster posters for various soccer teams. To showcase this development, here is the lineup of posters for the team I support, Chelsea FC. The first few posters were made using an online website called Piktochart, before moving on to Adobe Photoshop and Adobe Illustrator. Every year, I would try to implement a new technique I learned over the last year to improve upon the last iteration.</p>
-                  <p>This is the most recent version of the poster, which I turned more into an infographic over the previous iterations. By implementing panel designs prevalent in many modern UIs, I was able to present more information to provide a more in-depth view of the team.</p>
-                  <p>Here are some of the other teams’ posters created over the years. Each poster incorporated themes of the teams they are representing.</p>
-                  <p>Occasionally, I would venture outside club teams and make similar posters for the Korean National Team.</p>
-                  <p>To celebrate the roster selection that decided which players will be representing my home country, I created posters for each of the 23 players chosen to take the trip to Russia. I incorporated the colors prevalent on the jersey that Korea would be wearing the tournament, as well as tiger claw marks that represent the national fauna.</p>
-                </div>
-              }
+            <div className="project-info">
+              <h2 className={this.state.displayProjectInfo && "more-info"}>Soccer Posters</h2>
+              {
+                  this.state.displayProjectInfo &&
+                  <div className="project-description">
+                    <p>If there was a series of projects to look back upon to see the development of my graphic design skills, it would be this one. Ever since my first interactions with digital creation tools, I made a tradition of making annual roster posters for various soccer teams. To showcase this development, here is the lineup of posters for the team I support, Chelsea FC. The first few posters were made using an online website called Piktochart, before moving on to Adobe Photoshop and Adobe Illustrator. Every year, I would try to implement a new technique I learned over the last year to improve upon the last iteration.</p>
+                    <p>This is the most recent version of the poster, which I turned more into an infographic over the previous iterations. By implementing panel designs prevalent in many modern UIs, I was able to present more information to provide a more in-depth view of the team.</p>
+                    <p>Here are some of the other teams’ posters created over the years. Each poster incorporated themes of the teams they are representing.</p>
+                    <p>Occasionally, I would venture outside club teams and make similar posters for the Korean National Team.</p>
+                    <p>To celebrate the roster selection that decided which players will be representing my home country, I created posters for each of the 23 players chosen to take the trip to Russia. I incorporated the colors prevalent on the jersey that Korea would be wearing the tournament, as well as tiger claw marks that represent the national fauna.</p>
+                  </div>
+                }
+              </div>
           </div>
           }
         </div>
