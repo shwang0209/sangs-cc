@@ -6,14 +6,18 @@ import panel3 from './images/about/about_panel3.png';
 import resumeButton from './images/about/resume_button.png';
 import backButtonHover from './images/back_button_hover.png';
 import resumeDownloadButton from './images/about/resume_download.png';
-import resume from './images/about/Resume_Sep2020.pdf';
-import moreButton from './images/projects/more_button.png';
+import resume from './images/about/Resume_Jan2021.pdf';
+import moreButton from './images/projects/more_button.svg';
 import introMP4 from './images/intro.mp4';
 import introWEBM from './images/intro.webm';
 import afj from './images/projects/afj.png';
-import chelsea from './images/projects/chelsea.png';
+import soccer from './images/projects/soccer.png';
 import ecst from './images/projects/ecst.png';
-import logoProject from './images/projects/logo_project.png';
+import motionGraphics from './images/projects/motion_graphics.png';
+import emailExpanded from './images/contact/email_expanded.svg';
+import instagramExpanded from './images/contact/instagram_expanded.svg';
+import linkedinExpanded from './images/contact/linkedin_expanded.svg';
+import twitterExpanded from './images/contact/twitter_expanded.svg';
 import './styles/App.css';
 
 class App extends Component {
@@ -127,7 +131,7 @@ class App extends Component {
 
             {
               this.state.showResume &&
-              <a href={resume} download="resume.pdf" target="_blank" rel="noreferrer" className="download-resume">
+              <a href={resume} download="Resume_Sanghoon_Hwang.pdf" target="_blank" rel="noreferrer" className="download-resume">
                 <img src={resumeDownloadButton} alt="Resume download button"/>
                 <span>Download</span>
               </a>
@@ -162,66 +166,95 @@ class App extends Component {
               onClick={() => this.setState({displayedProject: "afj"})}
             />
             <div
-              className={"carousel-button" + (this.state.displayedProject === "ecst" ? " active-project" : "")}
-              onClick={() => this.setState({displayedProject: "ecst"})}
-            />
-            <div
-              className={"carousel-button" + (this.state.displayedProject === "chelsea" ? " active-project" : "")}
-              onClick={() => this.setState({displayedProject: "chelsea"})}
+              className={"carousel-button" + (this.state.displayedProject === "motion" ? " active-project" : "")}
+              onClick={() => this.setState({displayedProject: "motion"})}
             />
             <div
               className={"carousel-button" + (this.state.displayedProject === "logo" ? " active-project" : "")}
               onClick={() => this.setState({displayedProject: "logo"})}
             />
+            <div
+              className={"carousel-button" + (this.state.displayedProject === "soccer" ? " active-project" : "")}
+              onClick={() => this.setState({displayedProject: "soccer"})}
+            />
           </div>
-          <div className={"more" + (this.state.displayProjectInfo ? " hidden" : "")} onClick={() => this.setState(prevState => ({displayProjectInfo: true}))}><img src={moreButton} alt="More info button"/></div>
+          <div className={"more" + (this.state.displayProjectInfo ? " hidden" : "")} onClick={() => this.setState({displayProjectInfo: true})}><img src={moreButton} alt="More info button"/></div>
           {
             this.state.displayedProject === "afj" &&
             <div className="project">
               <img className={this.state.displayProjectInfo && "more-info"} src={afj} alt="American Friends of Jamaica"/>
-              <h2 className={this.state.displayProjectInfo && "more-info"}>American Friends of Jamaica</h2>
-              <h3 className={this.state.displayProjectInfo && "more-info"}>Nonprofit Organization</h3>
-              {
-                this.state.displayProjectInfo &&
-                <p>afj</p>
-              }
+              <div className="project-info">
+                <h2 className={this.state.displayProjectInfo && "more-info"}>American Friends of Jamaica</h2>
+                {
+                  this.state.displayProjectInfo &&
+                  <div className="project-description">
+                    <p>In 2019, I stumbled upon the great opportunity of creating something great. Whilst I was working as a social media intern at the nonprofit organization American Friends of Jamaica, I was able to showcase my design skills to the executive director and was effectively made a graphic design intern. The most exciting project I undertook that summer was designing for the 2019 Hummingbird Gala.</p>
+                    <p>The gala held greater meaning than the years prior, as the one and only World Record holder and Olympic Gold Medalist Usain Bolt would be honored at the event. To announce the honorees and the entertainers for 2019’s gala, I created a series of introductions to be posted on The AFJ’s social media platforms, as seen here.</p>
+                    <p>The identity of the 2019 Hummingbird Gala was an elegant mix of black and gold; however, I wanted these introduction cards to stand out from the rest of the promotion materials that were created. I made a bold choice incorporating high contrasting accents to ensure they caught the audiences’ eyes and directed the attention to Usain Bolt, which had the highest chance to catch someone’s attention.</p>
+                    <p>I took a more traditional approach to the entertainer introduction cards, sticking with the gala’s identity of black and gold. Some adjustments were made to the source photos and backgrounds to keep a uniform feel across the two posts.</p>
+                    <p>I am personally excited to talk about these because this design is the one that Usain Bolt personally said he liked. They highlighted the presence of Usain Bolt using a silhouette of his signature pose. These banners were used for various social media platforms, as well as at the end of every email that was sent out from our email system, in order to promote the 2019 Hummingbird Gala.</p>
+                    <p>These were preliminary designs for merchandise to be sold at the gala. Each design featured all three organizations vital to making this gala happen, as well as a simple design of a hummingbird or the silhouette of Usain Bolt previously used on the social media banners.</p>
+                    <p>This booklet serves as The AFJ’s annual report for potential investors who are considering donating to the communities in need in Jamaica. It is used to highlight the impact that the nonprofit organization made over the previous year and provide insight for the investors. Using the colors of the Jamaican Flag was considered at one point; however, I decided in the end that basing the palette around hues of blue would provide a more pleasurable reading experience for the viewers.</p>
+                  </div>
+                }
+              </div>
             </div>
           }
           {
-            this.state.displayedProject === "ecst" &&
+            this.state.displayedProject === "motion" &&
             <div className="project">
-              <img className={this.state.displayProjectInfo && "more-info"} src={ecst} alt="East Coast Surf Tribe"/>
-              <h2 className={this.state.displayProjectInfo && "more-info"}>East Coast Surf Tribe</h2>
-              <h3 className={this.state.displayProjectInfo && "more-info"}>Nonprofit Organization</h3>
+              <img className={this.state.displayProjectInfo && "more-info"} src={motionGraphics} alt="Motion Graphics 3D Animation"/>
+              <h2 className={this.state.displayProjectInfo && "more-info"}>Motion Graphics/3D Animation</h2>
               {
                 this.state.displayProjectInfo &&
-                <p>ecst</p>
+                <div className="project-description">
+                  <h3>Stamford Bridge Video</h3>
+                  <p>This video is my first venture into Cinema4D and the world of 3D in general. The video tells a story from Timo Werner’s perspective, a newly recruited soccer player from Germany. The camera alternates between POV shots and Television views, showing the game in which Timo Werner scored his first goal for his new team, Chelsea FC. The decision to leave most of the area largely untextured was a conscious choice to highlight the mental focus of the player.</p>
+                  <p>This project initially started in AfterEffects, but ultimately the decision to use 3D objects led to the shift to Cinema 4D. This project was largely a learning experience as I got used to the program but I was still able to create something rather elaborate, especially with the post-compositing in AfterEffects. Most of the textures used in Cinema 4D, as well as the motion graphics present, were initially created using Adobe Illustrator.</p>
+                  <h3>Logo Motion Video</h3>
+                  <p>This brand’s logo is a semi-symmetric, geometric “S” shape encased in a border sharing the same gradient fill. This logo was designed to be able to elegantly spin as a 3D object, all while cleanly presenting itself in 2D. This logo also works in two-tone settings, which is vital for many situations in digital interfaces.</p>
+                  <p>My first venture into AfterEffects served as an advertisement of sorts for this branding. The two main themes of this video was the use of lens flares and the use of diamond-shaped panels resembling the border of the logo.</p>
+                  <p>A concept storyboard was also created for an alternative animation. In this concept, the logo would fold itself like an origami. This origami is actually foldable in real life using the steps listed above.</p>
+                </div>
               }
             </div>
-          }
-          {
-            this.state.displayedProject === "chelsea" &&
-            <div className="project">
-            <img className={this.state.displayProjectInfo && "more-info"} src={chelsea} alt="Chelsea Infographic" />
-            <h2 className={this.state.displayProjectInfo && "more-info"}>Infographics</h2>
-            <h3 className={this.state.displayProjectInfo && "more-info"}>Nonprofit Organization</h3>
-            {
-                this.state.displayProjectInfo &&
-                <p>chels</p>
-              }
-          </div>
           }
           {
             this.state.displayedProject === "logo" &&
             <div className="project">
-              <img className={this.state.displayProjectInfo && "more-info"} src={logoProject} alt="Logo Design Project"/>
+              <img className={this.state.displayProjectInfo && "more-info"} src={ecst} alt="East Coast Surf Tribe Logo"/>
               <h2 className={this.state.displayProjectInfo && "more-info"}>Logo Designs</h2>
-              <h3 className={this.state.displayProjectInfo && "more-info"}>Nonprofit Organization</h3>
               {
                 this.state.displayProjectInfo &&
-                <p>logo</p>
+                <div className="project-description">
+                  <p>The logo of East Coast Surf Tribe invokes what it strives to invoke in its practices. Free-flowing, clean waves by the coast. The negative space found within the letters of “ECST” is reminiscent of designs found in surf culture, adding a layer of depth to the logo.</p>
+                  <p>Some variants of the main logo, keeping the same visual element.</p>
+                  <p>This packaging design was used for ECST merchandise such as shirts and stickers. It incorporates the blue color scheme reminiscent of the logo, present in the center of the package design. At the bottom of the design, ECST’s slogan, “Souls to Seas,” is written in a script font that resonates with the waves of the ocean.</p>
+                  <p>These two logos were created for personal use. They were based on two numbers that are deemed “lucky” in many cultures, especially those of the Eastern countries.</p>
+                  <p>For instance, this geometric logo is created by combining elements of the numbers 2 and 9, and how they can be combined to create the number 7.</p>
+                  <p>This logo’s motif is based on two things: a mobius strip and a whip. Using the fluid shape of the number 8 and its unending nature of it, this logo breaks away from the emerging trend of geometric logos, while being able to be used in a two-tone color scheme.</p>
+                  <p>This is a conceptual redesign of the cosmetic brand Lush’s logo. Currently, Lush is known for their stark black and white identity, which contrasts with their extremely colorful products. The most appealing part of their branding to me is this contrast, which I wanted to incorporate into the logo itself. Taking into account their belief for environmentally friendly products, I incorporated a set of leaves that contrast with the main part of the logo.</p>
+                  <p>Here are some variants that can potentially be used. For example, the storefront can have LED signages that change the color of the leaves as needed. Perhaps, the colors can represent the season or the new products they are promoting at the time.</p>
+                </div>
               }
             </div>
+          }
+          {
+            this.state.displayedProject === "soccer" &&
+            <div className="project">
+            <img className={this.state.displayProjectInfo && "more-info"} src={soccer} alt="Chelsea Infographic" />
+            <h2 className={this.state.displayProjectInfo && "more-info"}>Soccer Posters</h2>
+            {
+                this.state.displayProjectInfo &&
+                <div className="project-description">
+                  <p>If there was a series of projects to look back upon to see the development of my graphic design skills, it would be this one. Ever since my first interactions with digital creation tools, I made a tradition of making annual roster posters for various soccer teams. To showcase this development, here is the lineup of posters for the team I support, Chelsea FC. The first few posters were made using an online website called Piktochart, before moving on to Adobe Photoshop and Adobe Illustrator. Every year, I would try to implement a new technique I learned over the last year to improve upon the last iteration.</p>
+                  <p>This is the most recent version of the poster, which I turned more into an infographic over the previous iterations. By implementing panel designs prevalent in many modern UIs, I was able to present more information to provide a more in-depth view of the team.</p>
+                  <p>Here are some of the other teams’ posters created over the years. Each poster incorporated themes of the teams they are representing.</p>
+                  <p>Occasionally, I would venture outside club teams and make similar posters for the Korean National Team.</p>
+                  <p>To celebrate the roster selection that decided which players will be representing my home country, I created posters for each of the 23 players chosen to take the trip to Russia. I incorporated the colors prevalent on the jersey that Korea would be wearing the tournament, as well as tiger claw marks that represent the national fauna.</p>
+                </div>
+              }
+          </div>
           }
         </div>
         <div id="contact" className="content">
@@ -229,15 +262,29 @@ class App extends Component {
           <h2>I am available for freelance projects now, and full-time employment starting June 2021.</h2>
           <h3>The best place to contact me is at my email!</h3>
           <div className="contact-buttons">
-            <svg className="contact-email" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 141.42 141.42">
+            <img id="email-expanded" src={emailExpanded} alt="Email expanded banner" />
+            <svg
+              onMouseOver={() => document.getElementById('email-expanded').style.display = "block"}
+              onMouseOut={() => document.getElementById('email-expanded').style.display = "none"}
+              className="contact-email"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 141.42 141.42"
+            >
                 <g id="Layer_2" data-name="Layer 2">
                   <g id="Layer_1-2" data-name="Layer 1">
-                    <rect onClick={() => navigator.clipboard.writeText("sangs.contact@gmail.com")} style={{fill: "#ff4a4f"}} x="20.71" y="20.71" width="100" height="100" transform="translate(-29.29 70.71) rotate(-45)"/>
-                    <path onClick={() => navigator.clipboard.writeText("sangs.contact@gmail.com")} style={{fill: "#f3f3f5"}} d="M74,42.71c15.11,0,24.92,11.07,24.92,24.2,0,13.29-8.78,19.54-15.66,19.54-4.75,0-7.2-2.85-7.67-5.85l-.08-.48a14.5,14.5,0,0,1-11.39,6.33c-7.68,0-12.26-5.61-12.26-13.29,0-10.6,8.7-19.38,17.87-19.38,4.75,0,8.23,2.3,9.89,5.3l.87-4.19h8.94l-4,19.3a15.39,15.39,0,0,0-.23,1.9c0,2.45,1.26,3.56,2.92,3.56,3.09,0,7.44-3.72,7.44-12.74,0-12.49-8.54-21.11-21.83-21.11-15,0-28,13.13-28,27.92,0,12.41,9.49,22,22.3,22a26.86,26.86,0,0,0,14.48-4.36l1.66,2.38a30.49,30.49,0,0,1-16.45,5c-14.4,0-25.08-10.84-25.08-24.84C42.55,57,57.5,42.71,74,42.71ZM78.3,64.94a7.11,7.11,0,0,0-6.4-4C65.57,60.9,61,66.6,61,72.37c0,4.11,2.53,7,6.57,7s7-2.77,8.78-5.14Z"/>
+                    <rect onClick={() => navigator.clipboard.writeText("sangs.contact@gmail.com")} style={{fill: "#ff4a4f", cursor: "pointer"}} x="20.71" y="20.71" width="100" height="100" transform="translate(-29.29 70.71) rotate(-45)"/>
+                    <path onClick={() => navigator.clipboard.writeText("sangs.contact@gmail.com")} style={{fill: "#f3f3f5", cursor: "pointer"}} d="M74,42.71c15.11,0,24.92,11.07,24.92,24.2,0,13.29-8.78,19.54-15.66,19.54-4.75,0-7.2-2.85-7.67-5.85l-.08-.48a14.5,14.5,0,0,1-11.39,6.33c-7.68,0-12.26-5.61-12.26-13.29,0-10.6,8.7-19.38,17.87-19.38,4.75,0,8.23,2.3,9.89,5.3l.87-4.19h8.94l-4,19.3a15.39,15.39,0,0,0-.23,1.9c0,2.45,1.26,3.56,2.92,3.56,3.09,0,7.44-3.72,7.44-12.74,0-12.49-8.54-21.11-21.83-21.11-15,0-28,13.13-28,27.92,0,12.41,9.49,22,22.3,22a26.86,26.86,0,0,0,14.48-4.36l1.66,2.38a30.49,30.49,0,0,1-16.45,5c-14.4,0-25.08-10.84-25.08-24.84C42.55,57,57.5,42.71,74,42.71ZM78.3,64.94a7.11,7.11,0,0,0-6.4-4C65.57,60.9,61,66.6,61,72.37c0,4.11,2.53,7,6.57,7s7-2.77,8.78-5.14Z"/>
                   </g>
                 </g>
             </svg>
-            <svg className="contact-linkedin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 141.42 141.42">
+            <img id="linkedin-expanded" src={linkedinExpanded} alt="LinkedIn expanded banner" />
+            <svg
+              onMouseOver={() => document.getElementById('linkedin-expanded').style.display = "block"}
+              onMouseOut={() => document.getElementById('linkedin-expanded').style.display = "none"}
+              className="contact-linkedin"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 141.42 141.42"
+            >
               <g id="Layer_2" data-name="Layer 2">
                 <g id="Layer_1-2" data-name="Layer 1">
                   <a className="contact-linkedin" href="https://linkedin.com/in/sanghoon-hwang/" target="_blank" rel="noreferrer">
@@ -249,7 +296,14 @@ class App extends Component {
                 </g>
               </g>
             </svg>
-            <svg className="contact-instagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 141.42 141.42">
+            <img id="instagram-expanded" src={instagramExpanded} alt="Instagram expanded banner" />
+            <svg
+              onMouseOver={() => document.getElementById('instagram-expanded').style.display = "block"}
+              onMouseOut={() => document.getElementById('instagram-expanded').style.display = "none"}
+              className="contact-instagram"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 141.42 141.42"
+            >
               <g id="Layer_2" data-name="Layer 2">
                 <g id="Layer_1-2" data-name="Layer 1">
                   <a className="contact-instagram" href="https://www.instagram.com/sangs_cc/" target="_blank" rel="noreferrer">
@@ -261,7 +315,14 @@ class App extends Component {
                 </g>
               </g>
             </svg>
-            <svg className="contact-twitter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 141.42 141.42">
+            <img id="twitter-expanded" src={twitterExpanded} alt="Twitter expanded banner" />
+            <svg
+              onMouseOver={() => document.getElementById('twitter-expanded').style.display = "block"}
+              onMouseOut={() => document.getElementById('twitter-expanded').style.display = "none"}
+              className="contact-twitter"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 141.42 141.42"
+            >
               <g id="Layer_2" data-name="Layer 2">
                 <g id="Layer_1-2" data-name="Layer 1">
                   <a className="contact-twitter" href="https://twitter.com/Sangs_cc" target="_blank" rel="noreferrer">
@@ -273,7 +334,7 @@ class App extends Component {
             </svg>
           </div>
           <h3 className="purple">... but let's connect on other platforms as well!</h3>
-          <span class="imprint">IMPRINT</span>
+          <span class="credit">Website designed by Sang, built by <a href="https://github.com/gnaww" target="_blank" rel="noreferrer">Will</a></span>
         </div>
       </div>
     );
