@@ -10,14 +10,57 @@ import resume from './images/about/Resume_Jan2021.pdf';
 import moreButton from './images/projects/more_button.svg';
 import introMP4 from './images/intro.mp4';
 import introWEBM from './images/intro.webm';
-import afj from './images/projects/afj.png';
-import soccer from './images/projects/soccer.png';
-import ecst from './images/projects/ecst.png';
-import motionGraphics from './images/projects/motion_graphics.png';
+import afj from './images/projects/afj/afj.png';
+import soccer from './images/projects/soccer/soccer.png';
+import ecst from './images/projects/logo/ecst.png';
+import motionGraphics from './images/projects/motion_graphics/motion_graphics.png';
 import emailExpanded from './images/contact/email_expanded.svg';
 import instagramExpanded from './images/contact/instagram_expanded.svg';
 import linkedinExpanded from './images/contact/linkedin_expanded.svg';
 import twitterExpanded from './images/contact/twitter_expanded.svg';
+import afj1_1 from './images/projects/afj/AFJ_1_1.png';
+import afj1_2 from './images/projects/afj/AFJ_1_2.png';
+import afj1_3 from './images/projects/afj/AFJ_1_3.png';
+import afj1_4 from './images/projects/afj/AFJ_1_4.png';
+import afj1_5 from './images/projects/afj/AFJ_1_5.png';
+import afj1_6 from './images/projects/afj/AFJ_1_6.png';
+import afj2_1 from './images/projects/afj/AFJ_2_1.png';
+import afj2_2 from './images/projects/afj/AFJ_2_2.png';
+import afj2_3 from './images/projects/afj/AFJ_2_3.png';
+import afj2_4 from './images/projects/afj/AFJ_2_4.png';
+import afj2_5 from './images/projects/afj/AFJ_2_5.png';
+import afj3_1 from './images/projects/afj/AFJ_3_1.png';
+import afj3_2 from './images/projects/afj/AFJ_3_2.png';
+import afj3_3 from './images/projects/afj/AFJ_3_3.png';
+import logo1_1 from './images/projects/logo/Logo_1_1.png';
+import logo1_2 from './images/projects/logo/Logo_1_2.png';
+import logo1_3 from './images/projects/logo/Logo_1_3.png';
+import logo1_4 from './images/projects/logo/Logo_1_4.png';
+import logo1_5 from './images/projects/logo/Logo_1_5.png';
+import logo2_1 from './images/projects/logo/Logo_2_1.png';
+import logo2_2 from './images/projects/logo/Logo_2_2.png';
+import logo2_3 from './images/projects/logo/Logo_2_3.jpg';
+import logo2_4 from './images/projects/logo/Logo_2_4.jpg';
+import logo3_1 from './images/projects/logo/Logo_3_1.png';
+import logo3_2 from './images/projects/logo/Logo_3_2.png';
+import logo3_3 from './images/projects/logo/Logo_3_3.png';
+import logo3_4 from './images/projects/logo/Logo_3_4.png';
+import soccer1_1 from './images/projects/soccer/SoccerPosters_1_1.png';
+import soccer1_2 from './images/projects/soccer/SoccerPosters_1_2.png';
+import soccer1_3 from './images/projects/soccer/SoccerPosters_1_3.jpg';
+import soccer1_4 from './images/projects/soccer/SoccerPosters_1_4.jpg';
+import soccer1_5 from './images/projects/soccer/SoccerPosters_1_5.png';
+import soccer1_6 from './images/projects/soccer/SoccerPosters_1_6.png';
+import soccer2_1 from './images/projects/soccer/SoccerPosters_2_1.png';
+import soccer2_2 from './images/projects/soccer/SoccerPosters_2_2.png';
+import soccer2_3 from './images/projects/soccer/SoccerPosters_2_3.png';
+import soccer2_4 from './images/projects/soccer/SoccerPosters_2_4.jpg';
+import soccer3_1 from './images/projects/soccer/SoccerPosters_3_1.png';
+import soccer3_2 from './images/projects/soccer/SoccerPosters_3_2.jpg';
+import soccer3_3 from './images/projects/soccer/SoccerPosters_3_3.jpg';
+import soccer3_4 from './images/projects/soccer/SoccerPosters_3_4.jpg';
+import motion2_1 from './images/projects/motion_graphics/MotionGraphics_2_1.png'
+import motion2_2 from './images/projects/motion_graphics/MotionGraphics_2_2.png'
 import './styles/App.css';
 
 class App extends Component {
@@ -182,18 +225,48 @@ class App extends Component {
           {
             this.state.displayedProject === "afj" &&
             <div className="project">
-              <img className={this.state.displayProjectInfo && "more-info"} src={afj} alt="American Friends of Jamaica"/>
+              <img className={"project-banner" + (this.state.displayProjectInfo ? " more-info" : "")} src={afj} alt="American Friends of Jamaica"/>
               <div className="project-info">
                 <h2 className={this.state.displayProjectInfo && "more-info"}>American Friends of Jamaica</h2>
                 {
                   this.state.displayProjectInfo &&
                   <div className="project-description">
                     <p>In 2019, I stumbled upon the great opportunity of creating something great. Whilst I was working as a social media intern at the nonprofit organization American Friends of Jamaica, I was able to showcase my design skills to the executive director and was effectively made a graphic design intern. The most exciting project I undertook that summer was designing for the 2019 Hummingbird Gala.</p>
+                    <div className="afj1">
+                      <img src={afj1_1} />
+                      <img src={afj1_3} />
+                    </div>
+                    <div className="afj2">
+                      <img src={afj1_2} />
+                      <img src={afj1_4} />
+                    </div>
                     <p>The gala held greater meaning than the years prior, as the one and only World Record holder and Olympic Gold Medalist Usain Bolt would be honored at the event. To announce the honorees and the entertainers for 2019’s gala, I created a series of introductions to be posted on The AFJ’s social media platforms, as seen here.</p>
                     <p>The identity of the 2019 Hummingbird Gala was an elegant mix of black and gold; however, I wanted these introduction cards to stand out from the rest of the promotion materials that were created. I made a bold choice incorporating high contrasting accents to ensure they caught the audiences’ eyes and directed the attention to Usain Bolt, which had the highest chance to catch someone’s attention.</p>
+                    <div className="afj3">
+                      <img src={afj1_6} />
+                      <img src={afj1_5} />
+                    </div>
                     <p>I took a more traditional approach to the entertainer introduction cards, sticking with the gala’s identity of black and gold. Some adjustments were made to the source photos and backgrounds to keep a uniform feel across the two posts.</p>
+                    <div className="afj4">
+                      <img src={afj2_1} />
+                    </div>
                     <p>I am personally excited to talk about these because this design is the one that Usain Bolt personally said he liked. They highlighted the presence of Usain Bolt using a silhouette of his signature pose. These banners were used for various social media platforms, as well as at the end of every email that was sent out from our email system, in order to promote the 2019 Hummingbird Gala.</p>
+                    <div className="afj5">
+                      <img src={afj2_2} />
+                      <img src={afj2_3} />
+                    </div>
+                    <div className="afj6">
+                      <img src={afj2_4} />
+                      <img src={afj2_5} />
+                    </div>
                     <p>These were preliminary designs for merchandise to be sold at the gala. Each design featured all three organizations vital to making this gala happen, as well as a simple design of a hummingbird or the silhouette of Usain Bolt previously used on the social media banners.</p>
+                    <div className="afj7">
+                      <img src={afj3_1} />
+                      <div>
+                        <img src={afj3_2} />
+                        <img src={afj3_3} />
+                      </div>
+                    </div>
                     <p>This booklet serves as The AFJ’s annual report for potential investors who are considering donating to the communities in need in Jamaica. It is used to highlight the impact that the nonprofit organization made over the previous year and provide insight for the investors. Using the colors of the Jamaican Flag was considered at one point; however, I decided in the end that basing the palette around hues of blue would provide a more pleasurable reading experience for the viewers.</p>
                   </div>
                 }
@@ -203,17 +276,27 @@ class App extends Component {
           {
             this.state.displayedProject === "motion" &&
             <div className="project">
-              <img className={this.state.displayProjectInfo && "more-info"} src={motionGraphics} alt="Motion Graphics 3D Animation"/>
+              <img className={"project-banner" + (this.state.displayProjectInfo ? " more-info" : "")} src={motionGraphics} alt="Motion Graphics 3D Animation"/>
               <div className="project-info">
                 <h2 className={this.state.displayProjectInfo && "more-info"}>Motion Graphics/3D Animation</h2>
                 {
                   this.state.displayProjectInfo &&
                   <div className="project-description">
                     <h3>Stamford Bridge Video</h3>
+                    <div className="motion1">
+                      <iframe  width="712" height="400" src="https://www.youtube.com/embed/lV65jreWZ5Q" />
+                    </div>
                     <p>This video is my first venture into Cinema4D and the world of 3D in general. The video tells a story from Timo Werner’s perspective, a newly recruited soccer player from Germany. The camera alternates between POV shots and Television views, showing the game in which Timo Werner scored his first goal for his new team, Chelsea FC. The decision to leave most of the area largely untextured was a conscious choice to highlight the mental focus of the player.</p>
-                    <p>This project initially started in AfterEffects, but ultimately the decision to use 3D objects led to the shift to Cinema 4D. This project was largely a learning experience as I got used to the program but I was still able to create something rather elaborate, especially with the post-compositing in AfterEffects. Most of the textures used in Cinema 4D, as well as the motion graphics present, were initially created using Adobe Illustrator.</p>
+                    <p>This project initially started in AfterEffects, but ultimately the decision to use 3D objects led to the shift to Cinema 4D. Cinema 4D allowed for new layers of dynamism to be added to the project, as physics and character animations were now possible. This project was largely a learning experience as I got used to the program but I was still able to create something rather elaborate, especially with the post-compositing in AfterEffects. Most of the textures used in Cinema 4D, as well as the motion graphics present, were initially created using Adobe Illustrator.</p>
                     <h3>Logo Motion Video</h3>
+                    <div className="motion2">
+                      <img src={motion2_1} />
+                      <img src={motion2_2} />
+                    </div>
                     <p>This brand’s logo is a semi-symmetric, geometric “S” shape encased in a border sharing the same gradient fill. This logo was designed to be able to elegantly spin as a 3D object, all while cleanly presenting itself in 2D. This logo also works in two-tone settings, which is vital for many situations in digital interfaces.</p>
+                    <div className="motion1">
+                      <iframe  width="712" height="400" src="https://www.youtube.com/embed/D3JXx7oylTw" />
+                    </div>
                     <p>My first venture into AfterEffects served as an advertisement of sorts for this branding. The two main themes of this video was the use of lens flares and the use of diamond-shaped panels resembling the border of the logo.</p>
                     <p>A concept storyboard was also created for an alternative animation. In this concept, the logo would fold itself like an origami. This origami is actually foldable in real life using the steps listed above.</p>
                   </div>
@@ -224,19 +307,46 @@ class App extends Component {
           {
             this.state.displayedProject === "logo" &&
             <div className="project">
-              <img className={this.state.displayProjectInfo && "more-info"} src={ecst} alt="East Coast Surf Tribe Logo"/>
+              <img className={"project-banner" + (this.state.displayProjectInfo ? " more-info" : "")} src={ecst} alt="East Coast Surf Tribe Logo"/>
               <div className="project-info">
                 <h2 className={this.state.displayProjectInfo && "more-info"}>Logo Designs</h2>
                 {
                   this.state.displayProjectInfo &&
                   <div className="project-description">
-                    <p>The logo of East Coast Surf Tribe invokes what it strives to invoke in its practices. Free-flowing, clean waves by the coast. The negative space found within the letters of “ECST” is reminiscent of designs found in surf culture, adding a layer of depth to the logo.</p>
-                    <p>Some variants of the main logo, keeping the same visual element.</p>
+                    <div className="afj4">
+                      <img src={logo1_1} />
+                    </div>
+                    <p>The logo of East Coast Surf Tribe invokes what it strives to invoke in its practices. Free-flowing, clean waves of the ocean. The negative space found within the letters of “ECST” is reminiscent of designs found in surf culture, adding a layer of depth to the logo.</p>
+                    <div className="afj2">
+                      <img src={logo1_2} />
+                      <img src={logo1_3} />
+                    </div>
+                    <p>Some variants of the main logo, keeping the same motif of the waves of the ocean.</p>
+                    <div className="afj2">
+                      <img src={logo1_4} />
+                      <img src={logo1_5} />
+                    </div>
                     <p>This packaging design was used for ECST merchandise such as shirts and stickers. It incorporates the blue color scheme reminiscent of the logo, present in the center of the package design. At the bottom of the design, ECST’s slogan, “Souls to Seas,” is written in a script font that resonates with the waves of the ocean.</p>
+                    <div className="logo1">
+                      <img className="first-logo" src={logo2_1} />
+                      <img className="second-logo" src={logo2_2} />
+                    </div>
                     <p>These two logos were created for personal use. They were based on two numbers that are deemed “lucky” in many cultures, especially those of the Eastern countries.</p>
                     <p>For instance, this geometric logo is created by combining elements of the numbers 2 and 9, and how they can be combined to create the number 7.</p>
+                    <div className="logo1">
+                      <img className="first-logo" src={logo2_3} />
+                      <img className="second-logo" src={logo2_4} />
+                    </div>
                     <p>This logo’s motif is based on two things: a mobius strip and a whip. Using the fluid shape of the number 8 and its unending nature of it, this logo breaks away from the emerging trend of geometric logos, while being able to be used in a two-tone color scheme.</p>
+                    <div className="afj4">
+                      <img src={logo3_1} />
+                    </div>
                     <p>This is a conceptual redesign of the cosmetic brand Lush’s logo. Currently, Lush is known for their stark black and white identity, which contrasts with their extremely colorful products. The most appealing part of their branding to me is this contrast, which I wanted to incorporate into the logo itself. Taking into account their belief for environmentally friendly products, I incorporated a set of leaves that contrast with the main part of the logo.</p>
+                    <div className="logo2">
+                      <img src={logo3_2} />
+                      <img src={logo3_3} />
+                      <img src={logo3_4} />
+                    </div>
                     <p>Here are some variants that can potentially be used. For example, the storefront can have LED signages that change the color of the leaves as needed. Perhaps, the colors can represent the season or the new products they are promoting at the time.</p>
                   </div>
                 }
@@ -246,21 +356,49 @@ class App extends Component {
           {
             this.state.displayedProject === "soccer" &&
             <div className="project">
-            <img className={this.state.displayProjectInfo && "more-info"} src={soccer} alt="Chelsea Infographic" />
-            <div className="project-info">
-              <h2 className={this.state.displayProjectInfo && "more-info"}>Soccer Posters</h2>
-              {
+              <img className={"project-banner" + (this.state.displayProjectInfo ? "  more-info" : "")} src={soccer} alt="Chelsea Infographic" />
+              <div className="project-info">
+                <h2 className={this.state.displayProjectInfo && "more-info"}>Soccer Posters</h2>
+                {
                   this.state.displayProjectInfo &&
                   <div className="project-description">
+                    <div className="soccer1">
+                      <div>
+                        <img src={soccer1_1} />
+                        <img src={soccer1_2} />
+                        <img src={soccer1_3} />
+                        <img src={soccer1_4} />
+                      </div>
+                      <img src={soccer1_5} />
+                    </div>
                     <p>If there was a series of projects to look back upon to see the development of my graphic design skills, it would be this one. Ever since my first interactions with digital creation tools, I made a tradition of making annual roster posters for various soccer teams. To showcase this development, here is the lineup of posters for the team I support, Chelsea FC. The first few posters were made using an online website called Piktochart, before moving on to Adobe Photoshop and Adobe Illustrator. Every year, I would try to implement a new technique I learned over the last year to improve upon the last iteration.</p>
+                    <div className="soccer2">
+                      <img src={soccer1_6} />
+                    </div>
                     <p>This is the most recent version of the poster, which I turned more into an infographic over the previous iterations. By implementing panel designs prevalent in many modern UIs, I was able to present more information to provide a more in-depth view of the team.</p>
+                    <div className="soccer3">
+                      <img src={soccer2_3} />
+                      <div>
+                        <img src={soccer2_1} />
+                        <img src={soccer2_2} />
+                      </div>
+                      <img src={soccer2_4} />
+                    </div>
                     <p>Here are some of the other teams’ posters created over the years. Each poster incorporated themes of the teams they are representing.</p>
+                    <div className="soccer4">
+                      <img src={soccer3_1} />
+                      <img src={soccer3_2} />
+                    </div>
                     <p>Occasionally, I would venture outside club teams and make similar posters for the Korean National Team.</p>
+                    <div className="soccer5">
+                      <img src={soccer3_3} />
+                      <img src={soccer3_4} />
+                    </div>
                     <p>To celebrate the roster selection that decided which players will be representing my home country, I created posters for each of the 23 players chosen to take the trip to Russia. I incorporated the colors prevalent on the jersey that Korea would be wearing the tournament, as well as tiger claw marks that represent the national fauna.</p>
                   </div>
                 }
               </div>
-          </div>
+            </div>
           }
         </div>
         <div id="contact" className="content">
