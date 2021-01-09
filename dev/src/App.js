@@ -77,23 +77,26 @@ class App extends Component {
 
   activateNavButton(scrollPos) {
     let aboutRect = document.getElementById("about").getBoundingClientRect();
+    let aboutHeight = aboutRect.top - aboutRect.bottom;
     let projectsRect = document.getElementById("projects").getBoundingClientRect();
+    let projectsHeight = projectsRect.top - projectsRect.bottom;
     let contactRect = document.getElementById("contact").getBoundingClientRect();
+    let contactHeight = contactRect.top - contactRect.bottom;
 
     // user on about section
-    if (scrollPos >= (aboutRect.top + scrollPos) && scrollPos < (aboutRect.bottom + scrollPos)) {
+    if (scrollPos >= (aboutRect.top + scrollPos + (aboutHeight/2)) && scrollPos < (aboutRect.bottom + scrollPos) + (aboutHeight/2)) {
       document.getElementById("nav-about").classList.add("active-nav");
     } else {
       document.getElementById("nav-about").classList.remove("active-nav");
     }
     // user on projects section
-    if (scrollPos >= (projectsRect.top + scrollPos) && scrollPos < (projectsRect.bottom + scrollPos)) {
+    if (scrollPos >= (projectsRect.top + scrollPos + (projectsHeight/2)) && scrollPos < (projectsRect.bottom + scrollPos  + (projectsHeight/2))) {
       document.getElementById("nav-projects").classList.add("active-nav");
     } else {
       document.getElementById("nav-projects").classList.remove("active-nav");
     }
     // user on contact section
-    if (scrollPos + 1 >= (contactRect.top + scrollPos) && scrollPos + 1 < (contactRect.bottom + scrollPos)) {
+    if (scrollPos + 1 >= (contactRect.top + scrollPos + (contactHeight/2)) && scrollPos < (contactRect.bottom + scrollPos)) {
       document.getElementById("nav-contact").classList.add("active-nav");
     } else {
       document.getElementById("nav-contact").classList.remove("active-nav");
@@ -161,15 +164,25 @@ class App extends Component {
           <div className="about-content">
             {
               this.state.aboutPanel === "howigothere" &&
-              <p>how i got here</p>
+              <div className="about-description">
+                <p>My venture into the world of graphic design actually started when my high school French teacher made an offhand comment about a website called Piktochart. Later that week I made an account and started messing around with the tools that they give you. Before I knew it, I spent 2 years making over 50 posters and infographics on my free time.</p>
+                <p>Upon entering college, I decided to take my interest in graphic design to the next level and started self-learning Photoshop and Illustrator. I’m sure all of us have been here before; there were moments where I would feel incredibly frustrated by my own lack of knowledge, yet filled with excitement knowing what I’ll be able to do in the future. I just needed to put in a little more effort.</p>
+                <p>So just a little more effort I put in. Since then, my design skills have taken me places that I would never have dreamt of a few years ago. To this day, it feels unreal that I actually made a Gala banner for the one and only Usain Bolt. I can only continue to dream what I will be able to make in the future.</p>
+              </div>
             }
             {
               this.state.aboutPanel === "whatiwanttosee" &&
-              <p>what i want to see</p>
+              <div className="about-description">
+                <p>My time living in New York City has taught me so many things about design. Every day, I was surrounded by millions of design choices made over the decades. A lot of them were good decisions that I could take inspiration from. However, a lot of them also left me asking “Why would you make it like that? Why keep it that way? Are others okay with this?”</p>
+                <p>That is why when I make something now, I aspire to create something I personally want to see out in the real world. Hopefully when I make something that I can be truly proud of, others will see it in the same positive manner.</p>
+              </div>
             }
             {
               this.state.aboutPanel === "mypassions" &&
-              <p>my passions</p>
+              <div className="about-description">
+                <p>The one thing I absolutely cannot live without is soccer. Ever since the 2002 World Cup in my home country of South Korea, soccer has been engraved deep into my life. I have been playing ever since, going on to captaining my high school soccer team one year. My love for soccer is probably really evident from all the personal projects I work on!</p>
+                <p>Other than soccer, I’m an avid fan of video games. I’ve been playing games for a long time now, but it’s actually been fascinating to see the number of people playing games grow ever since quarantine started. Staying at home more also meant that it was easier to invest to build a computer from scratch for both gaming and design purposes!</p>
+              </div>
             }
 
             {
@@ -231,6 +244,7 @@ class App extends Component {
                 {
                   this.state.displayProjectInfo &&
                   <div className="project-description">
+                    <h3>Honoree/Entertainer Intros</h3>
                     <p>In 2019, I stumbled upon the great opportunity of creating something great. Whilst I was working as a social media intern at the nonprofit organization American Friends of Jamaica, I was able to showcase my design skills to the executive director and was effectively made a graphic design intern. The most exciting project I undertook that summer was designing for the 2019 Hummingbird Gala.</p>
                     <div className="afj1">
                       <img src={afj1_1} />
@@ -247,6 +261,7 @@ class App extends Component {
                       <img src={afj1_5} />
                     </div>
                     <p>I took a more traditional approach to the entertainer introduction cards, sticking with the gala’s identity of black and gold. Some adjustments were made to the source photos and backgrounds to keep a uniform feel across the two posts.</p>
+                    <h3>Hummingbird 2019 Identity</h3>
                     <div className="afj4">
                       <img src={afj2_1} />
                     </div>
@@ -260,6 +275,7 @@ class App extends Component {
                       <img src={afj2_5} />
                     </div>
                     <p>These were preliminary designs for merchandise to be sold at the gala. Each design featured all three organizations vital to making this gala happen, as well as a simple design of a hummingbird or the silhouette of Usain Bolt previously used on the social media banners.</p>
+                    <h3>Annual Report Booklet</h3>
                     <div className="afj7">
                       <img src={afj3_1} />
                       <div>
@@ -313,6 +329,7 @@ class App extends Component {
                 {
                   this.state.displayProjectInfo &&
                   <div className="project-description">
+                    <h3>ECST Logo/Packaging</h3>
                     <div className="afj4">
                       <img src={logo1_1} />
                     </div>
@@ -327,6 +344,7 @@ class App extends Component {
                       <img src={logo1_5} />
                     </div>
                     <p>This packaging design was used for ECST merchandise such as shirts and stickers. It incorporates the blue color scheme reminiscent of the logo, present in the center of the package design. At the bottom of the design, ECST’s slogan, “Souls to Seas,” is written in a script font that resonates with the waves of the ocean.</p>
+                    <h3>Number Logos</h3>
                     <div className="logo1">
                       <img className="first-logo" src={logo2_1} />
                       <img className="second-logo" src={logo2_2} />
@@ -338,6 +356,7 @@ class App extends Component {
                       <img className="second-logo" src={logo2_4} />
                     </div>
                     <p>This logo’s motif is based on two things: a mobius strip and a whip. Using the fluid shape of the number 8 and its unending nature of it, this logo breaks away from the emerging trend of geometric logos, while being able to be used in a two-tone color scheme.</p>
+                    <h3>Lush Logo Redesign</h3>
                     <div className="afj4">
                       <img src={logo3_1} />
                     </div>
@@ -362,6 +381,7 @@ class App extends Component {
                 {
                   this.state.displayProjectInfo &&
                   <div className="project-description">
+                    <h3>Chelsea Posters</h3>
                     <div className="soccer1">
                       <div>
                         <img src={soccer1_1} />
@@ -376,6 +396,7 @@ class App extends Component {
                       <img src={soccer1_6} />
                     </div>
                     <p>This is the most recent version of the poster, which I turned more into an infographic over the previous iterations. By implementing panel designs prevalent in many modern UIs, I was able to present more information to provide a more in-depth view of the team.</p>
+                    <h3>Premier League Posters</h3>
                     <div className="soccer3">
                       <img src={soccer2_3} />
                       <div>
@@ -385,6 +406,7 @@ class App extends Component {
                       <img src={soccer2_4} />
                     </div>
                     <p>Here are some of the other teams’ posters created over the years. Each poster incorporated themes of the teams they are representing.</p>
+                    <h3>Korea Posters</h3>
                     <div className="soccer4">
                       <img src={soccer3_1} />
                       <img src={soccer3_2} />
