@@ -128,23 +128,12 @@ class App extends Component {
           <div className="intro-content">
             <h1>Hey, I'm Sang.</h1>
             <h2>Graphic Designer</h2>
-            <nav>
-              <ul>
-                <li onClick={() => document.getElementById("about").scrollIntoView({behavior: 'smooth'})}>About</li>
-                <li onClick={() => document.getElementById("projects").scrollIntoView({behavior: 'smooth'})}>Projects</li>
-                <li onClick={() => document.getElementById("contact").scrollIntoView({behavior: 'smooth'})}>Contact</li>
-              </ul>
-            </nav>
           </div>
         </header>
         <div className="side-nav">
           <div id="nav-about" onClick={() => document.getElementById("about").scrollIntoView({behavior: 'smooth'})}><span>About</span></div>
           <div id="nav-projects" onClick={() => document.getElementById("projects").scrollIntoView({behavior: 'smooth'})}><span>Projects</span></div>
           <div id="nav-contact" onClick={() => document.getElementById("contact").scrollIntoView({behavior: 'smooth'})}><span>Contact</span></div>
-          {
-            this.state.displayProjectInfo &&
-            <div id="projects-back" onClick={() => this.setState({displayProjectInfo: false})}><span>Back</span></div>
-          }
         </div>
         <div id="about" className="content">
           <div className="about-pictures">
@@ -167,7 +156,6 @@ class App extends Component {
               <div className="about-description">
                 <p>My venture into the world of graphic design actually started when my high school French teacher made an offhand comment about a website called Piktochart. Later that week I made an account and started messing around with the tools that they give you. Before I knew it, I spent 2 years making over 50 posters and infographics on my free time.</p>
                 <p>Upon entering college, I decided to take my interest in graphic design to the next level and started self-learning Photoshop and Illustrator. I’m sure all of us have been here before; there were moments where I would feel incredibly frustrated by my own lack of knowledge, yet filled with excitement knowing what I’ll be able to do in the future. I just needed to put in a little more effort.</p>
-                <p>So just a little more effort I put in. Since then, my design skills have taken me places that I would never have dreamt of a few years ago. To this day, it feels unreal that I actually made a Gala banner for the one and only Usain Bolt. I can only continue to dream what I will be able to make in the future.</p>
               </div>
             }
             {
@@ -241,6 +229,10 @@ class App extends Component {
               <img className={"project-banner" + (this.state.displayProjectInfo ? " more-info" : "")} src={afj} alt="American Friends of Jamaica"/>
               <div className="project-info">
                 <h2 className={this.state.displayProjectInfo && "more-info"}>American Friends of Jamaica</h2>
+                {
+                  this.state.displayProjectInfo &&
+                  <div id="projects-back" onClick={() => this.setState({displayProjectInfo: false})}><span>Back</span></div>
+                }
                 {
                   this.state.displayProjectInfo &&
                   <div className="project-description">
